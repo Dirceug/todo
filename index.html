@@ -34,6 +34,12 @@
         <button type="submit" id="submitAuthForm">Acessar</button>
       </form>
 
+      <!--Cadastrar uma nova senha para o usuário-->
+      <p id="passwordReset">
+        Esqueceu a senha?
+        <button onclick="sendPasswordResetEmail()" class="alternative">Redefinir minha senha</button>
+      </p>
+
       <!--Alternar o fomulário de autenticação para o cadastro de novas contas-->
       <p id="register">
         Não possui uma conta?
@@ -45,18 +51,28 @@
         Já possui uma conta?
         <button onclick="toggleToAccess()" class="alternative">Acesse a sua conta</button>
       </p>
+      <hr>
+
+      <p>Ou acesse usando: </p>
+      <img src="img/google.png" alt="" onclick="signInWithGoogle()">
+      <img src="img/github.png" alt="" onclick="signInWithGithub()">
+      <img src="img/facebook.png" alt="" onclick="signInWithFacebook()">
     </div>
     <!--Conteúdo para usuários autenticados-->
     <div id="userContent" class="startHidden">
       <hr>
       <div id="userInfo" class="center">
         <!--<p>Usuário está autenticado</p>-->
+        <img id="userImg">
+        <p id="userName"></p>
         <p id="userEmail"></p>
         <p id="emailVerified"></p>
         <div id="sendEmailVerificationDiv">
           <button class="alternative" onclick="sendEmailVerification()" >Verificar e-mail</button>
         </div>
+        <button class="alternative" onclick="updateUserName()">Atualizar meu nome</button>
         <button class="alternative" onclick="signOut()">Sair</button>
+        <button class="danger" onclick="deleteUserAccount()">Excluir a minha conta</button>
       </div>
     </div>
   </div>
@@ -70,5 +86,6 @@
   <script src="js/firebase.js"></script>
   <script src="js/auth.js"></script>
   <script src="js/utils.js"></script>
+
 </body>
 </html>
