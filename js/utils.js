@@ -80,7 +80,7 @@ function showAuth(){
 
 //Atributos extras de configuração de e-mail
 var actionCodeSettings = {
-  url: "http://127.0.0.1:5500/"
+  url: "https://todo-70f36.firebaseapp.com"
 }
 
 //Centralizar e traduzir erros
