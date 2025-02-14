@@ -82,3 +82,24 @@ function showAuth(){
 var actionCodeSettings = {
   url: "http://127.0.0.1:5500/"
 }
+
+//Centralizar e traduzir erros
+function showError(prefix, error){
+  console.log(error.code)
+  hideItem(loading)
+  switch(error.code){
+    case 'auth/invalid-email':
+    case 'auth/wrong-password': alert (prefix + ` ` + "E-mail ou senha inválidos!")
+    break;
+    case 'auth/weak-password': alert (prefix + ` ` + "Você precisa de uma senha com pelo menos 6 caractes!")
+    break;
+    case 'auth/email-already-in-use': alert (prefix + ` ` + "Este usuário já está cadastrado!")
+    break;
+    case 'auth/wrong-password': alert (prefix + ` ` + "E-mail ou senha inválidos!")
+    break;
+    case 'auth/popup-closed-by-user': alert (prefix + ` ` + "O Pop-up de autenticação foi fechado antes da operaçãop ser concluída!")
+    break;
+
+    default: alert (prefix + ` ` + error.message)
+  }
+}
