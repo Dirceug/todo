@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Logs
 logs
 *.log
@@ -67,3 +68,6 @@ node_modules/
 
 # dataconnect generated files
 .dataconnect
+=======
+js/firebase.js
+>>>>>>> aee75ae02c6892fce4d538ed3895936781d13bb8
