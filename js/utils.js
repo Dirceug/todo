@@ -16,6 +16,7 @@ var userName = document.getElementById('userName')
 var todoForm = document.getElementById('todoForm')
 var todoCount = document.getElementById('todoCount')
 var ulTodoList = document.getElementById('ulTodoList')
+var search = document.getElementById('search')
 
 
 // Alterar o formulário de autenticação para o cadastro de novas contas
@@ -68,13 +69,49 @@ function showUserContent(user){
 
   userEmail.innerHTML = user.email
   hideItem(auth)
+  detDefaultTodoList()
+  search.onkeyup = function (){
+    if(search.value != ""){
+      //Busca tarefas filtradas somente uma vez
+      dbRefUsers.child(user.uid)
+      //.orderByChild("name")//Ordena as tarefas pelo nome da tarefa
+      //.startAt(search.value).endAt(search.value + "/uf8ff")//Delimita os resultados de pesquisa)
+      .once('value')//busca as tarefas apenas uma vez
+      .then(function (dataSnapshot){
+        const filteredData = {}
+        dataSnapshot.forEach(function(item) {
+          const taskName = item.val().name.toLowerCase(); // Converter para minúsculas para comparação
+          const searchValue = search.value.toLowerCase(); // Converter para minúsculas para comparação
+          if (taskName.includes(searchValue)) {
+            filteredData[item.key] = item.val();
+          }
+        });
 
-  dbRefUsers.child(firebase.auth().currentUser.uid).on('value', function (dataSnapshot){
-    fillTodoList(dataSnapshot)
-  })
+        // Criar um novo dataSnapshot com os dados filtrados
+        const filteredSnapshot = {
+          val: () => filteredData,
+          forEach: (callback) => Object.entries(filteredData).forEach(([key, value]) => callback({ key, val: () => value })),
+          numChildren: () => Object.keys(filteredData).length
+        };
+        fillTodoList(filteredSnapshot)
+      })
+    }else {
+      detDefaultTodoList()
+    }
+  }
 
   showItem(userContent)
 }
+
+//Busca tarefas em tempo real(listagem padrão) - usando o .on
+function detDefaultTodoList (){
+  dbRefUsers.child(firebase.auth().currentUser.uid)
+  .orderByChild("name")//Ordena as tarefas pelo nome da tarefa
+  .on('value', function (dataSnapshot){
+    fillTodoList(dataSnapshot)
+  })
+}
+
 //Mostrar conteúdo para usuários não autenticados
 function showAuth(){
   authForm.email.value = ""

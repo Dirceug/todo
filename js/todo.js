@@ -28,6 +28,12 @@ function fillTodoList(dataSnapshot){
         spanLi.appendChild(document.createTextNode(value.name))//Adiciona um elemento de texto dentro da Span (nome da tarefa)
         spanLi.id = item.key //Define o id do spanLi como a chave da tarefa
         li.appendChild(spanLi)//Adiciona o span ao LI
+
+        var liUpdateBtn = document.createElement('button')//cria o botão para a remoção da tarefa
+        liUpdateBtn.appendChild(document.createTextNode("Editar"))//Define o texto do botão como 'editar'
+        liUpdateBtn.setAttribute('onclick', "updateTodo('" + item.key + "')")//Configura o onclick do botão de atualização de tarefas
+        liUpdateBtn.setAttribute("class", "alternative todoBtn")//define classes de estilização para o nosso botão de edição
+        li.appendChild(liUpdateBtn) //Adiciona o botão de remoção no LiUpdateulTodoList.appendChild(li)//Adiciona o LI dentro da lista de tarefas
         
         var liRemoveBtn = document.createElement('button')//cria o botão para a atualização da tarefa
         liRemoveBtn.appendChild(document.createTextNode("Excluir"))//Define o texto do botão como 'excluir'
@@ -35,11 +41,6 @@ function fillTodoList(dataSnapshot){
         liRemoveBtn.setAttribute("class", "danger todoBtn")//define classes de estilização para o nosso botão de remoção
         li.appendChild(liRemoveBtn) //Adiciona o botão de remoção no Li
         
-        var liUpdateBtn = document.createElement('button')//cria o botão para a remoção da tarefa
-        liUpdateBtn.appendChild(document.createTextNode("Editar"))//Define o texto do botão como 'editar'
-        liUpdateBtn.setAttribute('onclick', "updateTodo('" + item.key + "')")//Configura o onclick do botão de atualização de tarefas
-        liUpdateBtn.setAttribute("class", "alternative todoBtn")//define classes de estilização para o nosso botão de edição
-        li.appendChild(liUpdateBtn) //Adiciona o botão de remoção no LiUpdateulTodoList.appendChild(li)//Adiciona o LI dentro da lista de tarefas
 
         ulTodoList.appendChild(li)//Adiciona a li dentro d alista de tarefas
     })

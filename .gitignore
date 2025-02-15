@@ -1,2 +1,6 @@
-#Iginorar configuraçõs do firebase.
+#Ignorar configuraçõs do firebase:
 /js/firebase.js
+
+#Ignorar as regras de configuração do Firebase:
+/rules/realtimeDatabase.md
+/rules/regrasSeguranca.md
