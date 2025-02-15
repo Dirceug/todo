@@ -87,3 +87,24 @@ p {
   height: 60px;
   border-radius: 100%;
 }
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  padding: 8px;
+  display: flex; /* Adiciona display: flex */
+  align-items: center; /* Alinha os itens verticalmente ao centro */
+}
+
+li:hover {
+background-color: #ddd;
+border-radius: 8px;
+}
+
+.todoBtn {
+  margin-left: auto;  /*Empurra os botões para a direita */
+
+}

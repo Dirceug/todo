@@ -14,7 +14,8 @@ var userImg = document.getElementById('userImg')
 var userName = document.getElementById('userName')
 
 var todoForm = document.getElementById('todoForm')
-
+var todoCount = document.getElementById('todoCount')
+var ulTodoList = document.getElementById('ulTodoList')
 
 
 // Alterar o formulário de autenticação para o cadastro de novas contas
@@ -56,6 +57,7 @@ function showUserContent(user){
       emailVerified.innerHTML = "E-mail verificado!"
       hideItem(sendEmailVerificationDiv)
     } else {
+
       emailVerified.innerHTML = "E-mail não verificado!"
       showItem(sendEmailVerificationDiv)
     }
@@ -66,6 +68,11 @@ function showUserContent(user){
 
   userEmail.innerHTML = user.email
   hideItem(auth)
+
+  dbRefUsers.child(firebase.auth().currentUser.uid).on('value', function (dataSnapshot){
+    fillTodoList(dataSnapshot)
+  })
+
   showItem(userContent)
 }
 //Mostrar conteúdo para usuários não autenticados
