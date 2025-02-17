@@ -105,9 +105,14 @@ border-radius: 8px;
 }
 
 .todoBtn {
+  float: right;
+  margin-left: 0 0 0 4px;
+  bottom: 10px;
+}
+
+.todo2Btn{
   margin-left: auto;  /*Empurra os botões para a direita */
   float: right;
   margin-left: 0 0 0 4px;
-  position: relative;
   bottom: 10px;
 }

@@ -58,6 +58,7 @@
       <img src="img/github.png" alt="" onclick="signInWithGithub()">
       <img src="img/facebook.png" alt="" onclick="signInWithFacebook()">
     </div>
+
     <!--Conteúdo para usuários autenticados-->
     <div id="userContent" class="startHidden">
       <hr>
@@ -74,18 +75,7 @@
         <button class="alternative" onclick="signOut()">Sair</button>
         <button class="danger" onclick="deleteUserAccount()">Excluir a minha conta</button>
       </div>
-    </div>
-    <hr>
-    <!--Lista de tarefas do usuário-->
     
-    <div id="todoList">
-      <h3 id="todoCount">Carregando tarefas</h3>
-      <div id="center">
-        <label for="search">Buscar</label>
-        <input type="text" placeholder="buscar" id="search">
-      </div>
-      <ul id="ulTodoList"></ul>
-    </div>
     <hr>
     <div class="center">
       <!--Formulário de tarefas!-->
@@ -96,8 +86,20 @@
         <button type="submit" id="submitForm">Adicionar tarefa</button>
       </form>
     </div>
-  </div>
+    <hr>
+    <!--Lista de tarefas do usuário-->
+    
+    <div id="todoList" class="center">
+      <h3 id="todoCount">Carregando tarefas</h3>
+      <div id="center">
+        <label for="search">Buscar</label>
+        <input type="text" placeholder="buscar" id="search">
+      </div>
+      <ul id="ulTodoList"></ul>
+    </div>
 
+  </div>
+</div>
   <!--Atualizando apenas por questão de commit-->
 
 
@@ -105,6 +107,7 @@
   <script src="https://www.gstatic.com/firebasejs/7.8.1/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/7.8.1/firebase-auth.js"></script>
   <script src="https://www.gstatic.com/firebasejs/7.8.1/firebase-database.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.8.1/firebase-firestore.js"></script>
 
   
   <!--Nossa programação em JavaScript-->

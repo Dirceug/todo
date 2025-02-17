@@ -32,7 +32,7 @@ function fillTodoList(dataSnapshot){
         var liUpdateBtn = document.createElement('button')//cria o botão para a remoção da tarefa
         liUpdateBtn.appendChild(document.createTextNode("Editar"))//Define o texto do botão como 'editar'
         liUpdateBtn.setAttribute('onclick', "updateTodo('" + item.key + "')")//Configura o onclick do botão de atualização de tarefas
-        liUpdateBtn.setAttribute("class", "alternative todoBtn")//define classes de estilização para o nosso botão de edição
+        liUpdateBtn.setAttribute("class", "alternative todo2Btn")//define classes de estilização para o nosso botão de edição
         li.appendChild(liUpdateBtn) //Adiciona o botão de remoção no LiUpdateulTodoList.appendChild(li)//Adiciona o LI dentro da lista de tarefas
         
         var liRemoveBtn = document.createElement('button')//cria o botão para a atualização da tarefa

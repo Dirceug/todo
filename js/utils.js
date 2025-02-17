@@ -65,8 +65,6 @@ function showUserContent(user){
   }
   userImg.src = user.photoURL? user.photoURL : "img/unknownUser.png"
   userName.innerHTML = user.displayName
-
-
   userEmail.innerHTML = user.email
   hideItem(auth)
   detDefaultTodoList()
